@@ -45,3 +45,6 @@ external_stage_read_privileges = ["USAGE", "READ"]
 ### Work with your terraform
 - You can just simply clone this project and make this as a module/sub-module of your terraform project, depending how your terraform is organised. And then start to modify to fit your needs.
 - Or just simply copy content each of file as your needs and place in your terraform project.
+
+### Note
+Please review each of your terraform creation carefully as this template contain many examples object only.
