@@ -9,9 +9,9 @@ This implementation provides:
 
 ## Idea
 Divide your users to 3 main groups:
-    - Admin: i.e person who manage `ACCOUNTADMIN`, `SYSADMIN` role
-    - Engineer: who works with Snowflake on daily basis like create databases, tables, pipelines.
-    - Analyst: who mostly work with select query.
+- Admin: i.e person who manage `ACCOUNTADMIN`, `SYSADMIN` role
+- Engineer: who works with Snowflake on daily basis like create databases, tables, pipelines.
+- Analyst: who mostly work with select query.
 The list goes on, but 3 main groups is the core of the idea.
 
 Secondly, with each Snowflake objects, we divided it into level of privileges. Ie. Read only, Read-Write, Third-party-account type.
@@ -59,5 +59,5 @@ Search for `YOUR_ORG.COM` and do similar to `admin_grant.tf`
 - Or just simply copy content each of file as your needs and place in your terraform project.
 
 ### Note
-Please review each of your terraform creation carefully as this template contain many examples object only.
-This template uses many advance terraform concept to deal with Snowflake's Terraform bug so please raise issue if you're not understand.
+- Please review each of your terraform creation carefully as this template contain many examples object only.
+- This template uses many advance terraform concept to deal with Snowflake's Terraform bug so please raise issue if you're not understand.
