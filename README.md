@@ -3,6 +3,8 @@ An implementation for deploying Snowflake by Terraform, within seconds with read
 
 This implementation provides:
 - Managing Snowflake permission hierrachy. Inspired by [Gitlab's Snowflake permission paradigm](https://about.gitlab.com/handbook/business-technology/data-team/platform/#snowflake-permissions-paradigm) which open-sourced by project call [Permifrost](https://gitlab.com/gitlab-data/permifrost).
+- Coping with AWS S3 Stage for Snowflake, you can refer to AWS Terraform resources as well.
+- By using official Snowflake's terraform plugin, it is fully compatible with anything within the library.
 - Coping above paradigm with SSO Group user provisioned by AD Group.
 
 ## Idea
