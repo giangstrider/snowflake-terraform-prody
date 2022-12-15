@@ -55,3 +55,4 @@ Change your organisation domain here.
 
 ### Note
 Please review each of your terraform creation carefully as this template contain many examples object only.
+This template uses many advance terraform concept to deal with Snowflake's Terraform bug so please raise issue if you're not understand.
