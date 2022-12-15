@@ -14,7 +14,7 @@ resource "snowflake_role_grants" "sysadmin_grants" {
           # Dev
           snowflake_role.role_dev_sv_airflow.name
         ],
-        [for role in snowflake_role.brighte_user_role : role.name]
+        [for role in snowflake_role.org_user_role : role.name]
     )
 )
   role_name = each.value
@@ -59,7 +59,7 @@ resource "snowflake_role_grants" "sv_stitch_grants" {
 # ==========================================
 # USER ROLES
 # ==========================================
-### NOTE: create_before_destroy is to prevent brighte_user_role to be destroyed
+### NOTE: create_before_destroy is to prevent org_user_role to be destroyed
 ###       before these grants are being update-in-place
 resource "snowflake_role_grants" "data_engineer_grants" {
   provider = snowflake.security_admin
@@ -67,7 +67,7 @@ resource "snowflake_role_grants" "data_engineer_grants" {
   role_name = snowflake_role.role_data_engineers.name
 
   roles = setintersection(
-    toset([for role in snowflake_role.brighte_user_role : role.name]),
+    toset([for role in snowflake_role.org_user_role : role.name]),
     toset(concat(local.sysadmins, local.data_engineers))
   )
 
@@ -82,7 +82,7 @@ resource "snowflake_role_grants" "spoke_developer_grants" {
   role_name = snowflake_role.role_analyts.name
 
   roles = setintersection(
-    toset([for role in snowflake_role.brighte_user_role : role.name]),
+    toset([for role in snowflake_role.org_user_role : role.name]),
     toset(concat(local.sysadmins, local.data_engineers, local.analysts))
   )
 
@@ -97,7 +97,7 @@ resource "snowflake_role_grants" "spoke_developer_grants" {
 # User SSO mapping with role respectively
 resource "snowflake_role_grants" "user_sso_role_mapping_grants" {
   provider = snowflake.security_admin
-  for_each = toset([for role in snowflake_role.brighte_user_role : role.name])
+  for_each = toset([for role in snowflake_role.org_user_role : role.name])
 
   role_name = each.value
   users = [replace("${each.value}@YOUR_ORG.COM", "_", ".")]
@@ -111,7 +111,7 @@ resource "snowflake_role_grants" "general_role_grants" {
   provider = snowflake.security_admin
 
   role_name = snowflake_role.role_general.name
-  users = [for role in snowflake_role.brighte_user_role : replace("${role.name}@YOUR_ORG.COM", "_", ".")]
+  users = [for role in snowflake_role.org_user_role : replace("${role.name}@YOUR_ORG.COM", "_", ".")]
 
   lifecycle {
     create_before_destroy = true
