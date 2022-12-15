@@ -49,6 +49,9 @@ replace("${role}@YOUR_ORG.COM", "_", ".") # This is demonstrate for SSO user.
 ```
 Change your organisation domain here.
 
+#### `role_grants.tf`
+Search for `YOUR_ORG.COM` and do similar to `admin_grant.tf`
+
 ### Work with your terraform
 - You can just simply clone this project and make this as a module/sub-module of your terraform project, depending how your terraform is organised. And then start to modify to fit your needs.
 - Or just simply copy content each of file as your needs and place in your terraform project.
