@@ -18,7 +18,8 @@ Secondly, with each Snowflake objects, we divided it into level of privileges. I
 With this definition, any new objects being created will need to be got the right level before provisioning. And later on, follow this pattern for any object creation. You can modify the type of permission granting for each of level according to your needs.
 
 
-## General config
+## How to use
+### Config
 Refer to `_variables.tf`
 
 ```
@@ -40,3 +41,7 @@ warehouse_usage_privileges = ["USAGE"]
 warehouse_write_privileges = ["MODIFY", "OPERATE"]
 external_stage_read_privileges = ["USAGE", "READ"]
 ```
+
+### Work with your terraform
+- You can just simply clone this project and make this as a module/sub-module of your terraform project, depending how your terraform is organised. And then start to modify to fit your needs.
+- Or just simply copy content each of file as your needs and place in your terraform project.
