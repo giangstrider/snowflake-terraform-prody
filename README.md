@@ -20,7 +20,7 @@ With this definition, any new objects being created will need to be got the righ
 
 ## How to use
 ### Config
-Refer to `_variables.tf`
+#### `_variables.tf`
 
 ```
 sysadmins = ["GIANGSTRIDER", "YOUR_ENGINEER_NAME"] # 1st level
@@ -41,6 +41,13 @@ warehouse_usage_privileges = ["USAGE"]
 warehouse_write_privileges = ["MODIFY", "OPERATE"]
 external_stage_read_privileges = ["USAGE", "READ"]
 ```
+
+#### `admin_grant.tf`
+Line 20:
+```
+replace("${role}@YOUR_ORG.COM", "_", ".") # This is demonstrate for SSO user.
+```
+Change your organisation domain here.
 
 ### Work with your terraform
 - You can just simply clone this project and make this as a module/sub-module of your terraform project, depending how your terraform is organised. And then start to modify to fit your needs.
