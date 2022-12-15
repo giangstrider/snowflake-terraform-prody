@@ -19,6 +19,8 @@ With this definition, any new objects being created will need to be got the righ
 
 
 ## How to use
+Before running with Terraform, an extra step need to do manually in order to provides terraform appropriate access to execute resources.
+- Run script in `pre_terraform.sql`
 ### Config
 #### `_variables.tf`
 
